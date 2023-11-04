@@ -53,7 +53,7 @@ router.get("/find/:id", async (req, res) => {
 //GET ALL USER
 router.get("/", async (req, res) => {
   try {
-    const data = await TopPhoto.find().sort("description");
+    const data = await TopPhoto.find().sort({ description: -1 });
     res.status(200).json(data);
   } catch (err) {
     res.status(500).json(err);
