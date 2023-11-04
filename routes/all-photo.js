@@ -4,7 +4,7 @@ const AllPhoto = require("../models/all-photo");
 // GET ALL CATEGORIES
 router.get("/", async (req, res) => {
   try {
-    const data = await AllPhoto.find().sort("description");
+    const data = await AllPhoto.find().sort({ description: -1 });
     res.status(200).json(data);
   } catch (error) {
     res.status(500).json(error);
